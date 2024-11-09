@@ -1,0 +1,39 @@
+<div class="fluid-container">
+    <div class="card my-3" *ngFor="let task of tasks">
+
+        <div *ngIf="!task.completed">
+            <p class="text-center">{{task.description}}</p>
+            <div class="form-check form-switch">
+
+            <div class="d-flex justify-content-center">
+                    <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="flexSwitchCheckDefault" 
+                    [(ngModel)]="task.completed">
+                
+                <label class="form-check-label" for="flexSwitchCheckDefault">Task Incomplete</label>
+            </div>
+          </div>
+        </div>
+
+
+        <div *ngIf="task.completed">
+            <s id="slashed" class="mb-3">{{task.description}}</s>
+            <div class="form-check form-switch">
+
+            <div class="d-flex justify-content-center">
+                    <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    id="flexSwitchCheckDefault" 
+                    [(ngModel)]="task.completed">
+                
+                <label class="form-check-label" for="flexSwitchCheckDefault">Task Complete</label>
+            </div>
+          </div>
+        </div>
+
+        
+    </div>
+</div>

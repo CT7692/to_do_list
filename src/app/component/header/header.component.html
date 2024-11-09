@@ -1,0 +1,28 @@
+<div class="fluid-container">
+  <h1 class="text-center my-5">To Do List</h1>
+  <form [formGroup]="addTaskForm" (submit)="onAddHandler(task)">
+    <div class="d-flex justify-content-center form-group">
+      <input
+        id="taskDescription" 
+        type="text"
+        required 
+        placeholder="Enter task..." 
+        class="mx-3 form-control"
+        formControlName="description"
+        [class.is-invalid]="description?.invalid && description?.touched">
+  
+      <div *ngIf="description?.invalid && description?.touched">
+        <small class="text-danger" *ngIf="description?.errors?.['required']">
+          Task description required.
+        </small>
+      </div>
+  
+        <input 
+        id="add"
+        type="submit" 
+        class="btn btn-primary mx-3"
+        [disabled]="addTaskForm.invalid"
+        value="Add">
+    </div>
+  </form>
+</div>
